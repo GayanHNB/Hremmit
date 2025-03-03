@@ -147,9 +147,9 @@
             <label for="beneficiary-name">Beneficiary's Name</label>
             <input type="text" id="beneficiary-name" name="beneficiary-name" required>
         </div>
-            <div class="form-group">
-            <label for="beneficiary-name">Remitter's Name</label>
-            <input type="text" id="Remitter-name" name="beneficiary-name" required>
+        <div class="form-group">
+            <label for="remitter-name">Remitter's Name</label>
+            <input type="text" id="remitter-name" name="remitter-name" required>
         </div>
         <div class="form-group">
             <label for="remitter-country">Remitter's Country</label>
@@ -191,7 +191,7 @@
         <div class="form-group">
             <label for="remitter-phone">Remitter's Phone Number</label>
             <div class="country-code-container">
-                <input type="text" id="country-code" class="country-code" disabled>
+                <input type="text" id="country-code" class="country-code" readonly>
                 <input type="text" id="remitter-phone" name="remitter-phone" class="local-number" required>
             </div>
         </div>
@@ -200,87 +200,66 @@
 </div>
 
 <script>
-    // Generate Reference Code based on current date and time
     document.addEventListener("DOMContentLoaded", function () {
         const referenceField = document.getElementById("reference");
         const timestamp = new Date().getTime();
         referenceField.value = "HNB-" + timestamp;
     });
 
-    function updateCountryCode() {
-        const countryCodeMap = {
-            Maldives: "+960",
-            USA: "+1",
-            UAE: "+971",
-            India: "+91",
-            Israel: "+972",
-            Romania: "+40",
-            "South Africa": "+27",
-            Germany: "+49",
-            Italy: "+39",
-            Canada: "+1",
-            Australia: "+61",
-            Singapore: "+65",
-            Malaysia: "+60",
-            "South Korea": "+82",
-            Cyprus: "+357",
-            Switzerland: "+41",
-            Japan: "+81",
-            Norway: "+47",
-            Sweden: "+46",
-            Turkey: "+90",
-            Bahrain: "+973",
-            Egypt: "+20",
-            UK: "+44",
-            France: "+33",
-            Russia: "+7",
-            Bangladesh: "+880",
-            Thailand: "+66",
-            Indonesia: "+62",
-            Philippines: "+63",
-            "Saudi Arabia": "+966",
-            Nepal: "+977"
-        };
+    function calculateCharges() {
+        const usdRate = document.getElementById("usd-rate").value;
+        const amountLkr = document.getElementById("amount-lkr").value;
+        const chargesUsd = document.getElementById("charges-usd");
+        const amountUsd = document.getElementById("amount-usd");
+        const totalAmount = document.getElementById("total-amount");
 
-        const country = document.getElementById("remitter-country").value;
-        const countryCode = countryCodeMap[country] || "";
-        document.getElementById("country-code").value = countryCode;
+        if (usdRate && amountLkr) {
+            const amountInUsd = amountLkr / usdRate;
+            chargesUsd.value = (amountInUsd * 0.01).toFixed(2); // Assuming 1% charge
+            amountUsd.value = amountInUsd.toFixed(2);
+            totalAmount.value = (amountInUsd + parseFloat(chargesUsd.value)).toFixed(2);
+        }
     }
 
-    function calculateCharges() {
-        const amountLkr = parseFloat(document.getElementById("amount-lkr").value);
-        const usdRate = parseFloat(document.getElementById("usd-rate").value);
+    function updateCountryCode() {
+        const country = document.getElementById("remitter-country").value;
+        const countryCode = document.getElementById("country-code");
+        
+        const codes = {
+            "Maldives": "+960",
+            "USA": "+1",
+            "UAE": "+971",
+            "India": "+91",
+            "Israel": "+972",
+            "Romania": "+40",
+            "South Africa": "+27",
+            "Germany": "+49",
+            "Italy": "+39",
+            "Canada": "+1",
+            "Australia": "+61",
+            "Singapore": "+65",
+            "Malaysia": "+60",
+            "South Korea": "+82",
+            "Cyprus": "+357",
+            "Switzerland": "+41",
+            "Japan": "+81",
+            "Norway": "+47",
+            "Sweden": "+46",
+            "Turkey": "+90",
+            "Bahrain": "+973",
+            "Egypt": "+20",
+            "UK": "+44",
+            "France": "+33",
+            "Russia": "+7",
+            "Bangladesh": "+880",
+            "Thailand": "+66",
+            "Indonesia": "+62",
+            "Philippines": "+63",
+            "Saudi Arabia": "+966",
+            "Nepal": "+977"
+        };
 
-        let chargeUsd = 0;
-
-        // Apply charge based on the amountLkr range
-        if (amountLkr >= 1000 && amountLkr <= 5000) {
-            chargeUsd = 1.00;
-        } else if (amountLkr > 5000 && amountLkr <= 10000) {
-            chargeUsd = 1.00;
-        } else if (amountLkr > 10000 && amountLkr <= 15000) {
-            chargeUsd = 1.50;
-        } else if (amountLkr > 15000 && amountLkr <= 20000) {
-            chargeUsd = 2.00;
-        } else if (amountLkr > 20000 && amountLkr <= 25000) {
-            chargeUsd = 2.50;
-        } else if (amountLkr > 25000 && amountLkr <= 50000) {
-            chargeUsd = 3.00;
-        } else if (amountLkr > 50000 && amountLkr <= 70000) {
-            chargeUsd = 5.50;
-        } else if (amountLkr > 70000 && amountLkr <= 90000) {
-            chargeUsd = 8.00;
-        } else if (amountLkr > 90000 && amountLkr <= 100000) {
-            chargeUsd = 10.50;
-        }
-
-        const amountUsd = (amountLkr - chargeUsd) / usdRate;
-        const totalAmount = amountUsd + chargeUsd;
-
-        // Update the Charges (Fee) in USD, Amount in USD, and Total Amount (USD)
-        document.getElementById("charges-usd").value = chargeUsd.toFixed(2);
-        document.getElementById("amount-usd").value = amountUsd.toFixed(2);
-        document.getElementById("total-amount").value = totalAmount.toFixed(2);
+        countryCode.value = codes[country] || "";
     }
 </script>
 
