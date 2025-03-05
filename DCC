@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Currency Conversion (DCC)</title>
+  <!-- Font Awesome Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    .slide {
+      width: 80%;
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 40px;
+      background: #fff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      text-align: center;
+    }
+    .slide h1 {
+      font-size: 36px;
+      color: #003366;
+      margin-bottom: 20px;
+    }
+    .slide h2 {
+      font-size: 28px;
+      color: #005580;
+      margin-bottom: 15px;
+    }
+    .slide p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .slide ul {
+      text-align: left;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+    .slide ul li {
+      margin-bottom: 10px;
+    }
+    .icon {
+      font-size: 40px;
+      margin-bottom: 20px;
+      color: #0073e6;
+    }
+    .cta-button {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #0073e6;
+      color: #fff;
+      font-size: 18px;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    .cta-button:hover {
+      background-color: #005580;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #003366;
+      color: #fff;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Slide 1: Title Slide -->
+  <div class="slide">
+    <h1>Dynamic Currency Conversion (DCC)</h1>
+    <p>A Convenient Payment Solution for Guests & Resorts</p>
+    <i class="fas fa-globe icon"></i>
+    <a href="#what-is-dcc" class="cta-button">Learn More</a>
+  </div>
+
+  <!-- Slide 2: What is DCC? -->
+  <div class="slide" id="what-is-dcc">
+    <h2>What is DCC?</h2>
+    <p>DCC (Dynamic Currency Conversion) allows international guests to see and pay the amount in their home currency.</p>
+    <i class="fas fa-exchange-alt icon"></i>
+  </div>
+
+  <!-- Slide 3: Overseas Payments & Charges -->
+  <div class="slide">
+    <h2>Overseas Payments & Charges</h2>
+    <ul>
+      <li>Stamp duty</li>
+      <li>International payment fee</li>
+      <li>Cross-border charges</li>
+      <li>Exchange rate fluctuations (varies by bank and country)</li>
+    </ul>
+    <i class="fas fa-coins icon"></i>
+  </div>
+
+  <!-- Slide 4: Exchange Rate Calculation -->
+  <div class="slide">
+    <h2>Exchange Rate Calculation</h2>
+    <p>Customers usually check Google exchange rates before making a purchase. Reality: Final bank statements often differ due to extra charges and rate variations.</p>
+    <i class="fas fa-calculator icon"></i>
+  </div>
+
+  <!-- Slide 5: How DCC Works -->
+  <div class="slide">
+    <h2>How DCC Works</h2>
+    <p>DCC Rate Calculation: Reuters rate + 6.99% markup. The amount paid and the bank statement amount remain the same, avoiding surprises.</p>
+    <p><strong>Key Benefit:</strong> Predictable exchange rate at the time of purchase.</p>
+    <i class="fas fa-chart-line icon"></i>
+  </div>
+
+  <!-- Slide 6: Benefits for Your Resort -->
+  <div class="slide">
+    <h2>Benefits for Your Resort</h2>
+    <p><strong>MDR (Merchant Discount Rate) Comparison:</strong></p>
+    <ul>
+      <li>Standard card transactions: Resort receives only USD 97 (assuming 3% MDR on a USD 100 transaction).</li>
+      <li>With DCC: The full USD 100 is received by the resort with no deductions.</li>
+    </ul>
+    <i class="fas fa-hand-holding-usd icon"></i>
+  </div>
+
+  <!-- Slide 7: Guest Experience & Compliance -->
+  <div class="slide">
+    <h2>Guest Experience & Compliance</h2>
+    <p>DCC is Optional: Guests must not be forced into DCC.</p>
+    <p><strong>Best Practice:</strong> Display both home and local currency options at checkout.</p>
+    <p><strong>41 Currencies Available:</strong> Provide a seamless experience for global travelers.</p>
+    <i class="fas fa-users icon"></i>
+  </div>
+
+  <!-- Slide 8: Conclusion & Call to Action -->
+  <div class="slide">
+    <h2>Conclusion & Call to Action</h2>
+    <p>DCC provides transparency, convenience, and value for both guests and resorts.</p>
+    <p>Encourage staff to present both options professionally. Maximize revenue by receiving full transaction amounts with DCC!</p>
+    <a href="#" class="cta-button">Start Using DCC Today</a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2023 Dynamic Currency Conversion (DCC). All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
